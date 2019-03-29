@@ -1,18 +1,24 @@
 import React from 'react';
-import { Card, Button } from 'react-bootstrap';
+import { Card, Button, Badge } from 'react-bootstrap';
 
 const SearchResult = (props) => {
-  const post = props.post
+  const post = props.post;
+  post.permalink = "https://old.reddit.com" + post.permalink;
+  const userLink = "https://old.reddit.com/user/" + post.author;
   return (
-    <Card>
-      <Card.Body>
-        <Card.Title>{post.title}</Card.Title>
-        <Card.Text>
+    <div className="container text-center">
+      <Card>
+        <Card.Body>
+          <Card.Header className="text-left">Posted by <a href={userLink}>{post.author}</a></Card.Header>
+          <Card.Title className="text-left">{post.title}</Card.Title>
+          <Card.Text className="text-left">
+            {post.selftext}
+          </Card.Text>
           <img src={post.thumbnail} alt=''></img>
-        </Card.Text>
-        <Button variant="primary">Go somewhere</Button>
-      </Card.Body>
-    </Card>
+        </Card.Body>
+      </Card>
+      <hr></hr>
+    </div>
   );
 };
 
