@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Navbar, Nav, NavDropdown, Form, FormControl} from 'react-bootstrap';
-import NavBar from './NavBar';
+import NavBar from '../components/NavBar';
 
 class Home extends Component {
   render() {
