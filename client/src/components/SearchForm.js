@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Form, Row, Col, Button } from 'react-bootstrap';
 import { connect } from 'react-redux';
-import { addQuery } from '../actions/index';
+import { searchReddit } from '../actions/index';
 
 class SearchForm extends Component {
 
@@ -17,7 +17,7 @@ class SearchForm extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    this.props.addQuery(this.state.query)
+    this.props.searchReddit(this.state.query)
     this.setState({
       query: ''
     })
@@ -48,7 +48,7 @@ class SearchForm extends Component {
 };
 
 const mapDispatchToProps = dispatch => ({
-  addQuery: formData => dispatch(addQuery(formData))
+  searchReddit: formData => dispatch(searchReddit(formData))
 });
 
 export default connect(null, mapDispatchToProps)(SearchForm);

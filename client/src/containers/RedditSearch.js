@@ -10,14 +10,14 @@ class RedditSearch extends Component {
       <React.Fragment>
         <NavBar />
         <SearchInput />
-        <SearchResult />
+        <SearchResult loading={this.props.status.loading} />
       </React.Fragment>
     )
   };
 };
 
 const mapStateToProps = state => ({
-  
+  status: {loading: state.posts.loading}
 })
 
 export default connect(mapStateToProps)(RedditSearch);

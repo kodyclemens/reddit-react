@@ -4,7 +4,10 @@
   "private": true,
   "proxy": "http://localhost:3001",
   "dependencies": {
+    "@bit/joshk.jotils.get-random-color": "^1.1.0",
+    "@bit/mhnpd.react-loader-spinner.tail-spin": "^2.2.0",
     "bootstrap": "^4.3.1",
+    "lodash": "^4.17.11",
     "react": "^16.8.6",
     "react-bootstrap": "^1.0.0-beta.6",
     "react-dom": "^16.8.6",

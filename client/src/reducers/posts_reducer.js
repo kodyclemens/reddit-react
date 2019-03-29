@@ -1,8 +1,9 @@
 export default function postsReducer(state = [], action) {
   switch(action.type) {
-    case 'ADD_QUERY':
-      // Gather posts from API and save to store
-      return {query: action.query};
+    case 'START_SEARCH':
+      return {query: action.query, loading: true};
+    case 'SAVE_RESULTS':
+      return {...state, loading: false};
     default:
       return state;
   }
