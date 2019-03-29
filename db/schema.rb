@@ -10,9 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 2019_03_29_182039) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "posts", force: :cascade do |t|
+    t.string "subreddit"
+    t.string "author"
+    t.string "title"
+    t.text "post_text"
+    t.string "post_link"
+    t.string "image"
+    t.string "image_thumbnail"
+    t.string "post_permalink"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
 end

@@ -5,3 +5,21 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+Post.create!(subreddit: 'funny', author: 'kodyclemens', title: 'a funny post',
+post_text: 'this is a funny post')
+
+Post.create!(subreddit: 'funny', author: 'kodyclemens', title: 'a funny post',
+post_text: 'this is a funny post')
+
+Post.create!(subreddit: 'funny', author: 'kodyclemens', title: 'a funny post',
+post_text: 'this is a funny post')
+
+Post.create!(subreddit: 'funny', author: 'kodyclemens', title: 'a funny post',
+post_text: 'this is a funny post')
+
+Post.create!(subreddit: 'funny', author: 'kodyclemens', title: 'a funny post',
+post_text: 'this is a funny post')
+
+Post.create!(subreddit: 'funny', author: 'kodyclemens', title: 'a funny post',
+post_text: 'this is a funny post')
