@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import SearchInput from '../components/SearchInput';
 import NavBar from '../components/NavBar';
-import SearchResult from '../components/SearchResults';
+import SearchResults from '../components/SearchResults';
 import { connect } from 'react-redux';
 
 class RedditSearch extends Component {
@@ -10,14 +10,15 @@ class RedditSearch extends Component {
       <React.Fragment>
         <NavBar />
         <SearchInput />
-        <SearchResult loading={this.props.status.loading} />
+        <SearchResults loading={this.props.status.loading} posts={this.props.posts} />
       </React.Fragment>
     )
   };
 };
 
 const mapStateToProps = state => ({
-  status: {loading: state.posts.loading}
+  status: {loading: state.posts.loading},
+  posts: state.posts.posts
 })
 
 export default connect(mapStateToProps)(RedditSearch);

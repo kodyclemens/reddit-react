@@ -1,8 +1,18 @@
 import React, { Component } from 'react';
 import {TailSpin} from '@bit/mhnpd.react-loader-spinner.tail-spin';
+import SearchResult from './SearchResult';
 
-class SearchResult extends Component {
+class SearchResults extends Component {
+
+  
   render() {
+    let results = 'No results';
+    if (this.props.posts !== undefined) {
+      results = this.props.posts.map((post, id) => {return <SearchResult key={id} post={post} />})
+    }
+    else {
+      results = [];
+    }
     if (this.props.loading === true) {
       return (
         <TailSpin 
@@ -14,10 +24,12 @@ class SearchResult extends Component {
     }
     else {
       return (
-        <p>Not loading!</p>
+        <div>
+          {results}
+        </div>
       )
     }
   }
 };
 
-export default SearchResult;
+export default SearchResults;
