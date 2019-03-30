@@ -3,10 +3,6 @@ import {TailSpin} from '@bit/mhnpd.react-loader-spinner.tail-spin';
 import SearchResult from './SearchResult';
 
 class SearchResults extends Component {
-  
-  handleClick = (event, post) => {
-    debugger;
-  }
 
   render() {
     let results = [];

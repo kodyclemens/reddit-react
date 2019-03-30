@@ -6,3 +6,16 @@ export const searchReddit = query => {
     .then(posts => dispatch({type: 'SAVE_RESULTS', results: posts}))
   };
 };
+
+export const persistPost = post => {
+  return dispatch => {
+    dispatch({type: 'PERSIST_POST', post: {
+      postID: post.id,
+      postURL: post.url,
+      postAuthor: post.author,
+      postTitle: post.title,
+      postPermalink: post.permalink
+    }
+    });
+  };
+};
