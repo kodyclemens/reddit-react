@@ -1,14 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
 import SearchForm from './SearchForm';
 
-class SearchInput extends Component {
-  render() {
-    return(
-      <React.Fragment>
-        <SearchForm />
-      </React.Fragment>
+const SearchInput = () => {
+  return(
+      <SearchForm />
     )
-  }
-}
+};
 
 export default SearchInput;

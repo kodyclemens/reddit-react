@@ -21,7 +21,7 @@ class SearchResult extends Component {
           <Image src={post.url} rounded fluid />
         </Card.Body>
         <span className="text-center">
-          <a href={post.permalink} target="_blank"><FontAwesomeIcon icon={['fab', 'reddit-square']} style={{ color: '#FF4500' }} size="4x" /></a>
+          <a href={post.permalink} target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={['fab', 'reddit-square']} style={{ color: '#FF4500' }} size="4x" /></a>
         </span>
       </Card>
       <hr></hr>
