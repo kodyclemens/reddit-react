@@ -9,7 +9,6 @@ export default function postsReducer(state = [], action) {
       return {...state, posts: posts, loading: false};
 
     case 'PERSIST_POST':
-      persistPost(action.post);
       return {...state, persisted: [action.post]}
 
     case 'SET_PERSISTED':
@@ -20,21 +19,4 @@ export default function postsReducer(state = [], action) {
   };
 };
 
-const persistPost = (post) => {
-  fetch('/api/posts', {
-    method: 'post',
-    headers: {
-      'Accept': 'application/json',
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({
-      post: {
-        title: post.title,
-        author: post.postAuthor,
-        post_id: post.postID,
-        image: post.postURL,
-        post_permalink: post.postPermalink
-      }
-    })
-  })
-};
+

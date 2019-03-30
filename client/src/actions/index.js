@@ -8,6 +8,7 @@ export const searchReddit = query => {
 };
 
 export const persistPost = post => {
+  persistToDatabase(post);
   return dispatch => {
     dispatch({type: 'PERSIST_POST', post: {
       postID: post.id,
@@ -27,4 +28,25 @@ export const setPersisted = () => {
     .then(resp => resp.json())
     .then(posts => dispatch({type: 'SET_PERSISTED', posts: posts}));
   };
+};
+
+//--- Below are not to be exported ---//
+
+const persistToDatabase = (post) => {
+  fetch('/api/posts', {
+    method: 'post',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      post: {
+        title: post.title,
+        author: post.postAuthor,
+        post_id: post.postID,
+        image: post.postURL,
+        post_permalink: post.postPermalink
+      }
+    })
+  });
 };
