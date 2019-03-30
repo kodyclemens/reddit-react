@@ -5,30 +5,33 @@ export default function postsReducer(state = [], action) {
 
     case 'SAVE_RESULTS':
       const postData = action.results.data.children;
-      let posts = postData.map(post => post.data)
-      posts = posts.filter(post => post.post_hint === 'image')
+      let posts = postData.map(post => post.data).filter(post => post.post_hint === 'image')
       return {...state, posts: posts, loading: false};
 
     case 'PERSIST_POST':
-      // TODO: Persist post to DB
-      return fetch('/api/posts', {
-        method: 'post',
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          post: {
-            title: action.post.title,
-            author: action.post.postAuthor,
-            post_id: action.post.postID,
-            image: action.post.postURL,
-            post_permalink: action.post.postPermalink
-          }
-        }) 
-      })
+      persistPost(action.post);
+      return {...state, persisted: [action.post]}
 
     default:
       return state;
-  }
-}
+  };
+};
+
+const persistPost = (post) => {
+  fetch('/api/posts', {
+    method: 'post',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      post: {
+        title: post.title,
+        author: post.postAuthor,
+        post_id: post.postID,
+        image: post.postURL,
+        post_permalink: post.postPermalink
+      }
+    })
+  });
+};
