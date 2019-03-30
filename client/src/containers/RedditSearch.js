@@ -11,8 +11,6 @@ class RedditSearch extends Component {
         <NavBar />
         <SearchInput />
         <SearchResults loading={this.props.status.loading} posts={this.props.posts} />
-        <p><i class="fa-candy-cane"></i></p>
-        <i class="fas fa-thumbtack"></i>
       </React.Fragment>
     )
   };

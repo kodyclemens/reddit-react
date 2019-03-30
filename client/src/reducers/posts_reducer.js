@@ -4,7 +4,8 @@ export default function postsReducer(state = [], action) {
       return {...state, query: action.query, loading: true};
     case 'SAVE_RESULTS':
       const postData = action.results.data.children;
-      const posts = postData.map(post => post.data)
+      let posts = postData.map(post => post.data)
+      posts = posts.filter(post => post.post_hint === 'image')
       return {...state, posts: posts, loading: false};
     default:
       return state;
