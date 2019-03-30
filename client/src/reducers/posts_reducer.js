@@ -12,6 +12,9 @@ export default function postsReducer(state = [], action) {
       persistPost(action.post);
       return {...state, persisted: [action.post]}
 
+    case 'SET_PERSISTED':
+      return {...state, persisted: action.posts}
+
     default:
       return state;
   };
@@ -33,5 +36,5 @@ const persistPost = (post) => {
         post_permalink: post.postPermalink
       }
     })
-  });
+  })
 };
