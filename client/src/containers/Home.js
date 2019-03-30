@@ -6,14 +6,17 @@ import { setPersisted } from '../actions/index';
 class Home extends Component {
 
   render() {
+    console.log(this.props.posts)
     return(
-      <NavBar />
+      <React.Fragment>
+        <NavBar />
+      </React.Fragment>
     )
   };
 };
 
 const mapPropsToState = state => {
-  return state;
+  return {posts: state.posts.persisted};
 }
 
 const mapPropsToDispatch = dispatch => ({
