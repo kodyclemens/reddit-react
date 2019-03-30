@@ -1,16 +1,17 @@
 import React from 'react';
 import { Navbar, Nav } from 'react-bootstrap';
+import { NavLink } from 'react-router-dom';
 
 const NavBar = () => {
     return (
       <div>
         <Navbar bg="dark" expand="lg" variant="dark">
-          <Navbar.Brand href="/">Reddit Browser</Navbar.Brand>
+          <NavLink to="/" exact className="navbar-brand">Reddit Browser</NavLink>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mr-auto">
-              <Nav.Link href="/">Home</Nav.Link>
-              <Nav.Link href="/search">Search</Nav.Link>
+              <NavLink to="/" exact className="nav-link">Home</NavLink>
+              <NavLink to="/search" exact className="nav-link">Search</NavLink>
             </Nav>
           </Navbar.Collapse>
         </Navbar>
