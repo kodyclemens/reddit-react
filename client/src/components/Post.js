@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { Card, Image, Button } from 'react-bootstrap';
+import { Card, Button } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { connect } from 'react-redux';
 import { persistPost } from '../actions/index';
@@ -43,7 +43,7 @@ class Post extends PureComponent {
             {pinAction}
           </Card.Header>
           <Card.Title className="text-left">{post.title}</Card.Title>
-          <Image src={post.image || post.url} rounded fluid />
+          <Card.Img src={post.image || post.url} />
         </Card.Body>
         <span className="text-center">
           <a href={post.permalink} target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={['fab', 'reddit-square']} style={{ color: '#FF4500' }} size="4x" /></a>
