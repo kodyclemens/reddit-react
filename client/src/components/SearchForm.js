@@ -6,7 +6,8 @@ import { searchReddit } from '../actions/index';
 class SearchForm extends Component {
 
   state = {
-    query: ''
+    query: '',
+    amount: 10
   };
 
   handleChange = event => {
@@ -17,11 +18,14 @@ class SearchForm extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    this.props.searchReddit(this.state.query)
-    this.setState({
-      query: ''
-    })
+    this.props.searchReddit(this.state.query, this.state.amount)
   };
+
+  handleSlider = event => {
+    this.setState({
+      amount: event.target.value 
+    })
+  }
 
   render() {
     return(
@@ -35,7 +39,9 @@ class SearchForm extends Component {
               <Form.Control type="text" placeholder="Facebook stored plaintext passwords" onChange={this.handleChange} value={this.state.query} />
             </Col>
           </Form.Group>
-  
+          <label>Search for {this.state.amount} posts</label>
+          <br></br>
+          <input type="range" min="10" max="100" value={this.state.amount} className="slider" id="myRange" onChange={this.handleSlider} ></input>
           <Form.Group as={Row}>
             <Col sm={{ span: 10, offset: 2 }}>
               <Button type="submit">Search Reddit</Button>
@@ -48,7 +54,7 @@ class SearchForm extends Component {
 };
 
 const mapDispatchToProps = dispatch => ({
-  searchReddit: formData => dispatch(searchReddit(formData))
+  searchReddit: (query, amount) => dispatch(searchReddit(query, amount))
 });
 
 export default connect(null, mapDispatchToProps)(SearchForm);
