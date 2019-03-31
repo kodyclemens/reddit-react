@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import {LoadSpinner} from './Loading';
+import {LoadingSpinner} from './Loading';
 import Post from './Post';
 
 class Posts extends PureComponent {
@@ -13,7 +13,7 @@ class Posts extends PureComponent {
     if (this.props.loading === true) {
       return (
         <div className="text-center">
-          {LoadSpinner()}
+          {LoadingSpinner()}
         </div>
       )
     }
