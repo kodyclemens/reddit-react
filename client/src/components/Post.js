@@ -7,8 +7,9 @@ import { persistPost } from '../actions/index';
 class Post extends Component {
   render() {
     const post = this.props.post;
-    post.perma_link = "https://old.reddit.com" + post.perma_link;
     const userLink = "https://old.reddit.com/user/" + post.author;
+    post.perma_link = "https://old.reddit.com" + post.perma_link;
+    
     return(
       <div className="container text-center">
       <Card>

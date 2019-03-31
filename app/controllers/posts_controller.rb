@@ -5,8 +5,15 @@ class PostsController < APIController
   end
 
   def create
-    @post = Post.create!(post_params)
-    render json: @post, status: 201
+    @post = Post.new(post_params)
+    @persisted = Post.find_by(post_id: @post.post_id)
+
+    if @persisted.nil?
+      @post.save
+      render json: @post, status: 201
+    else
+      render json: @persisted, status: 409
+    end
   end
 
   private
