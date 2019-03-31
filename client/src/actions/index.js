@@ -1,7 +1,7 @@
 export const searchReddit = (query, amount) => {
   return dispatch => {
     dispatch({type: 'START_SEARCH', query});
-    return fetch(`http://www.reddit.com/r/all/search.json?limit=${amount}&q=${query}&t=all&sort=hot`)
+    return fetch(`https://www.reddit.com/r/all/search.json?limit=${amount}&q=${query}&t=all&sort=hot`)
     .then(resp => resp.json())
     .then(posts => dispatch({type: 'SAVE_RESULTS', results: posts}));
   };
