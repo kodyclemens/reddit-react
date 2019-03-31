@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import {TailSpin} from '@bit/mhnpd.react-loader-spinner.tail-spin';
+import {LoadSpinner} from './Loading';
 import Post from './Post';
 
 class Posts extends PureComponent {
@@ -13,11 +13,7 @@ class Posts extends PureComponent {
     if (this.props.loading === true) {
       return (
         <div className="text-center">
-          <TailSpin 
-            color={'#A384E7'} 
-            height={75} 
-            width={75} 
-          />
+          {LoadSpinner()}
         </div>
       )
     }
