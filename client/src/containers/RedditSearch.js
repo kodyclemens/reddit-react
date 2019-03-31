@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import SearchInput from '../components/SearchInput';
 import NavBar from '../components/NavBar';
-import SearchResults from '../components/SearchResults';
+import Posts from '../components/Posts';
 import { connect } from 'react-redux';
 
 class RedditSearch extends Component {
@@ -10,7 +10,7 @@ class RedditSearch extends Component {
       <React.Fragment>
         <NavBar />
         <SearchInput />
-        <SearchResults loading={this.props.status.loading} posts={this.props.posts} />
+        <Posts loading={this.props.status.loading} posts={this.props.posts} />
       </React.Fragment>
     )
   };

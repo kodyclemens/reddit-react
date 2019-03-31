@@ -42,10 +42,10 @@ const persistToDatabase = (post) => {
     body: JSON.stringify({
       post: {
         title: post.title,
-        author: post.postAuthor,
-        post_id: post.postID,
-        image: post.postURL,
-        post_permalink: post.postPermalink
+        author: post.author,
+        post_id: post.id,
+        image: post.url,
+        post_permalink: post.permalink
       }
     })
   });

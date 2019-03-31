@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import {TailSpin} from '@bit/mhnpd.react-loader-spinner.tail-spin';
-import SearchResult from './SearchResult';
+import Post from './Post';
 
-class SearchResults extends Component {
+class Posts extends Component {
 
   render() {
     let results = [];
     if (this.props.posts !== undefined) {
-      results = this.props.posts.map((post, id) => {return <SearchResult key={id} post={post} handleClick={this.handleClick} />})
+      results = this.props.posts.map((post, id) => {return <Post key={id} post={post} handleClick={this.handleClick} />})
     }
 
     if (this.props.loading === true) {
@@ -31,4 +31,4 @@ class SearchResults extends Component {
   }
 };
 
-export default SearchResults;
+export default Posts;
