@@ -29,22 +29,22 @@ class SearchForm extends Component {
 
   render() {
     return(
-      <div className="container">
+      <div className="container text-center">
         <Form onSubmit={this.handleSubmit}>
-          <Form.Group as={Row} controlId="formHorizontalEmail">
-            <Form.Label column sm={2}>
+          <Form.Group>
+            <Form.Label>
               Search Term
             </Form.Label>
-            <Col sm={4}>
-              <Form.Control type="text" placeholder="Facebook stored plaintext passwords" onChange={this.handleChange} value={this.state.query} />
+            <Col>
+              <Form.Control type="text" placeholder="pugs" onChange={this.handleChange} value={this.state.query} size="lg" maxLength="4" id="search-form" />
             </Col>
           </Form.Group>
           <label>Search for {this.state.amount} posts</label>
           <br></br>
           <input type="range" min="10" max="100" value={this.state.amount} className="slider" id="myRange" onChange={this.handleSlider} ></input>
           <Form.Group as={Row}>
-            <Col sm={{ span: 10, offset: 2 }}>
-              <Button type="submit">Search Reddit</Button>
+            <Col>
+              <Button type="submit" className="btn mx-auto">Search Reddit</Button>
             </Col>
           </Form.Group>
         </Form>

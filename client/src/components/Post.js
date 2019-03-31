@@ -35,7 +35,7 @@ class Post extends PureComponent {
 
     return(
       <div className="container text-center">
-      <Card>
+      <Card className="mx-auto">
         <Card.Body>
           <Card.Header className="text-left">
             Posted by <a href={userLink}>{post.author}</a>

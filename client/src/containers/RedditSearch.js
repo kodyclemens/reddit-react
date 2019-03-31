@@ -1,15 +1,15 @@
 import React, { PureComponent } from 'react';
-import SearchInput from '../components/SearchInput';
 import NavBar from '../components/NavBar';
 import Posts from '../components/Posts';
 import { connect } from 'react-redux';
+import SearchForm from '../components/SearchForm';
 
 class RedditSearch extends PureComponent {
   render() {
     return(
       <React.Fragment>
         <NavBar />
-        <SearchInput />
+        <SearchForm />
         <Posts loading={this.props.status.loading} posts={this.props.posts} />
       </React.Fragment>
     )
