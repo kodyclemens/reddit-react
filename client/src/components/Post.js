@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { Card, Image } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { connect } from 'react-redux';
 import { persistPost } from '../actions/index';
 
-class Post extends Component {
+class Post extends PureComponent {
   render() {
     const post = this.props.post;
     const userLink = "https://old.reddit.com/user/" + post.author;

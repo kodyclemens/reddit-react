@@ -10,5 +10,7 @@
     "deploy": "cp -a client/build/. public/",
     "heroku-postbuild": "yarn build && yarn deploy"
   },
-  "dependencies": {}
+  "dependencies": {
+    "why-did-you-update": "^1.0.6"
+  }
 }

@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Home from './containers/Home';
 import NotFound from './NotFound';
 import RedditSearch from './containers/RedditSearch';
 
-class App extends Component {
+class App extends PureComponent {
   render () {
     return <Router>
       <Switch>

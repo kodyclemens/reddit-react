@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import {TailSpin} from '@bit/mhnpd.react-loader-spinner.tail-spin';
 import Post from './Post';
 
-class Posts extends Component {
+class Posts extends PureComponent {
 
   render() {
     let renderPosts = [];

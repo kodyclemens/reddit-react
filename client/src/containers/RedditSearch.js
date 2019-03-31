@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import SearchInput from '../components/SearchInput';
 import NavBar from '../components/NavBar';
 import Posts from '../components/Posts';
 import { connect } from 'react-redux';
 
-class RedditSearch extends Component {
+class RedditSearch extends PureComponent {
   render() {
     return(
       <React.Fragment>
