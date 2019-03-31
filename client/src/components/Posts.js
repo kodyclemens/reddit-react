@@ -5,9 +5,9 @@ import Post from './Post';
 class Posts extends Component {
 
   render() {
-    let results = [];
+    let renderPosts = [];
     if (this.props.posts !== undefined) {
-      results = this.props.posts.map((post, id) => {return <Post key={id} post={post} handleClick={this.handleClick} />})
+      renderPosts = this.props.posts.map((post, id) => {return <Post key={id} post={post} handleClick={this.handleClick} />})
     }
 
     if (this.props.loading === true) {
@@ -24,7 +24,7 @@ class Posts extends Component {
     else {
       return (
         <div>
-          {results}
+          {renderPosts}
         </div>
       )
     }

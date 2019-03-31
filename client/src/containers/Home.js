@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import NavBar from '../components/NavBar';
 import { connect } from 'react-redux';
 import { setPersisted } from '../actions/index';
-import SearchResults from '../components/Posts';
+import Posts from '../components/Posts';
 
 class Home extends PureComponent {
 
@@ -14,14 +14,14 @@ class Home extends PureComponent {
     return(
       <React.Fragment>
         <NavBar />
-        <SearchResults posts={this.props.posts} />
+        <Posts posts={this.props.posts} />
       </React.Fragment>
     )
   };
 };
 
 const mapPropsToState = state => {
-  return {posts: state.posts.persisted};
-}
+  return {posts: state.posts.persisted}
+};
 
 export default connect(mapPropsToState)(Home);

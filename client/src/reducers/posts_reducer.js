@@ -12,6 +12,9 @@ export default function postsReducer(state = [], action) {
       return {...state, persisted: [action.post]}
 
     case 'SET_PERSISTED':
+      for(let x in action.posts) {
+        action.posts[x].persisted = true;
+      }
       return {...state, persisted: action.posts}
 
     default:
