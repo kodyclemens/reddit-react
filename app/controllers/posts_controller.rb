@@ -19,6 +19,6 @@ class PostsController < APIController
   private
 
   def post_params
-    params.require(:post).permit(:title, :author, :post_id, :image, :post_permalink)
+    params.require(:post).permit(:title, :author, :post_id, :image, :permalink)
   end
 end

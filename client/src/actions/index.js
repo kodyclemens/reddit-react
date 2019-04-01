@@ -1,7 +1,7 @@
 export const searchReddit = (query, amount) => {
   return dispatch => {
     dispatch({type: 'START_SEARCH', query});
-    return fetch(`https://www.reddit.com/r/all/search.json?limit=${amount}&q=${query}&t=all&sort=hot`)
+    return fetch(`https://www.reddit.com/r/all/search.json?limit=${amount}&q=${query}&sr_detail=on&t=all&sort=hot`)
     .then(resp => resp.json())
     .then(posts => dispatch({type: 'SAVE_RESULTS', results: posts}));
   };
@@ -11,11 +11,11 @@ export const persistPost = post => {
   persistToDatabase(post);
   return dispatch => {
     dispatch({type: 'PERSIST_POST', post: {
-      postID: post.id,
-      postURL: post.url,
-      postAuthor: post.author,
-      postTitle: post.title,
-      postPermalink: post.permalink
+      ID: post.id,
+      URL: post.url,
+      author: post.author,
+      title: post.title,
+      permalink: post.permalink
     }
     });
   };
@@ -45,7 +45,7 @@ const persistToDatabase = (post) => {
         author: post.author,
         post_id: post.id,
         image: post.url,
-        post_permalink: post.permalink
+        permalink: post.permalink
       }
     })
   });

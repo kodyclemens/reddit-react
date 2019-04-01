@@ -15,10 +15,13 @@ class Post extends PureComponent {
 
   render() {
     const post = this.props.post;
+    console.log(post)
     const persistedPostIDs = this.props.persistedPosts;
     const userLink = "https://old.reddit.com/user/" + post.author;
-    post.perma_link = "https://old.reddit.com" + post.perma_link;
+    const subreddit = post.permalink.split('/')[2]
+    post.link = "https://old.reddit.com" + post.permalink;
     let pinAction = ''
+
 
     // If the post ID from the search results matches an already persisted post's ID
     // we do not want to show the pin button (logic for search results feed)
@@ -38,16 +41,13 @@ class Post extends PureComponent {
       <Card className="mx-auto">
         <Card.Body>
           <Card.Header className="text-left">
-            Posted by <a href={userLink}>{post.author}</a>
+            Posted by <a href={userLink}>{post.author}</a> in <a href={post.link} target="_blank" rel="noopener noreferrer">/r/{subreddit}</a>
             <br></br>
             {pinAction}
           </Card.Header>
           <Card.Title className="text-left">{post.title}</Card.Title>
           <Card.Img src={post.image || post.url} />
         </Card.Body>
-        <span className="text-center">
-          <a href={post.permalink} target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={['fab', 'reddit-square']} style={{ color: '#FF4500' }} size="4x" /></a>
-        </span>
       </Card>
       <hr></hr>
     </div>

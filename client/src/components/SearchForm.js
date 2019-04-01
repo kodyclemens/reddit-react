@@ -37,7 +37,7 @@ class SearchForm extends Component {
               Search Term
             </Form.Label>
             <Col>
-              <Form.Control type="text" placeholder="pugs" onChange={this.handleChange} value={this.state.query} size="lg" maxLength="4" id="search-form" />
+              <Form.Control type="text" placeholder="pugs" onChange={this.handleChange} value={this.state.query} size="lg" maxLength="512" id="search-form" />
             </Col>
           </Form.Group>
           <label>Show me a maximum of <strong>{this.state.amount}</strong> results</label>
