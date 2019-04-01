@@ -15,7 +15,6 @@ class Post extends PureComponent {
 
   render() {
     const post = this.props.post;
-    console.log(post)
     const persistedPostIDs = this.props.persistedPosts;
     const userLink = "https://old.reddit.com/user/" + post.author;
     const subreddit = post.permalink.split('/')[2]
