@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Form, Row, Col, Button } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import { searchReddit } from '../actions/index';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 class SearchForm extends Component {
 
@@ -39,12 +40,16 @@ class SearchForm extends Component {
               <Form.Control type="text" placeholder="pugs" onChange={this.handleChange} value={this.state.query} size="lg" maxLength="4" id="search-form" />
             </Col>
           </Form.Group>
-          <label>Search for {this.state.amount} posts</label>
+          <label>Show me a maximum of <strong>{this.state.amount}</strong> results</label>
           <br></br>
           <input type="range" min="10" max="100" value={this.state.amount} className="slider" id="myRange" onChange={this.handleSlider} ></input>
           <Form.Group as={Row}>
             <Col>
-              <Button type="submit" className="btn mx-auto">Search Reddit</Button>
+              <Button type="submit" className="btn mx-auto reddit-btn">Search Reddit <FontAwesomeIcon 
+                icon={['fab', 'reddit-alien']} 
+                style={{ color: '#fff' }} 
+                />
+              </Button>
             </Col>
           </Form.Group>
         </Form>

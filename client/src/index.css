@@ -13,6 +13,11 @@ code {
     monospace;
 }
 
+.reddit-btn {
+ background-color: #FF4500;
+ border-color: #fff;
+}
+
 .div-center{
   display:block;
   width:50%;

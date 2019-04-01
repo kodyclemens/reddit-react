@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import NavBar from '../components/NavBar';
-import Posts from '../components/Posts';
+import Posts from './Posts';
 import { connect } from 'react-redux';
 import SearchForm from '../components/SearchForm';
 

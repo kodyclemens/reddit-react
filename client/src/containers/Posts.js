@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
-import {LoadingSpinner} from './Loading';
-import Post from './Post';
+import {LoadingSpinner} from '../components/Loading';
+import Post from '../components/Post';
 import { connect } from 'react-redux';
 import { setPersisted } from '../actions/index';
 

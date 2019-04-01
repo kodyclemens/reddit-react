@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import NavBar from '../components/NavBar';
 import { connect } from 'react-redux';
 import { setPersisted } from '../actions/index';
-import Posts from '../components/Posts';
+import Posts from './Posts';
 
 class Home extends PureComponent {
 
