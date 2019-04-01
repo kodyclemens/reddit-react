@@ -50,6 +50,10 @@ GEM
     coderay (1.1.2)
     concurrent-ruby (1.1.5)
     crass (1.0.4)
+    dotenv (2.7.2)
+    dotenv-rails (2.7.2)
+      dotenv (= 2.7.2)
+      railties (>= 3.2, < 6.1)
     erubi (1.8.0)
     ffi (1.10.0)
     globalid (0.4.2)
@@ -139,6 +143,7 @@ PLATFORMS
 DEPENDENCIES
   bootsnap (>= 1.1.0)
   byebug
+  dotenv-rails
   listen (>= 3.0.5, < 3.2)
   pg (>= 0.18, < 2.0)
   pry

@@ -12,10 +12,10 @@ class Home extends PureComponent {
 
   render() {
     return(
-      <React.Fragment>
+      <>
         <NavBar />
         <Posts posts={this.props.posts} />
-      </React.Fragment>
+      </>
     )
   };
 };

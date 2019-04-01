@@ -12,6 +12,7 @@ const NavBar = () => {
             <Nav className="mr-auto">
               <NavLink to="/" exact className="nav-link">Home</NavLink>
               <NavLink to="/search" exact className="nav-link">Search</NavLink>
+              <NavLink to="/about" exact className="nav-link">About</NavLink>
             </Nav>
           </Navbar.Collapse>
         </Navbar>

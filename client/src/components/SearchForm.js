@@ -8,7 +8,7 @@ class SearchForm extends Component {
 
   state = {
     query: '',
-    amount: 10
+    amount: 40
   };
 
   handleChange = event => {

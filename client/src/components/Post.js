@@ -20,6 +20,7 @@ class Post extends PureComponent {
     const subreddit = post.permalink.split('/')[2]
     post.link = "https://old.reddit.com" + post.permalink;
     let pinAction = ''
+    let cheerAction = <p>Cheers go here</p>
 
 
     // If the post ID from the search results matches an already persisted post's ID
@@ -32,7 +33,8 @@ class Post extends PureComponent {
     // Each persisted post has a 'persisted' property set to true
     // This is done in the posts_reducer when SET_PERSISTED is called
     if (post.persisted !== true ) {
-      pinAction = <Button variant="outline-success" onClick={(event) => this.handleClick(event, post)}>Pin to Frontpage</Button>
+      pinAction = <Button variant="outline-success" onClick={(event) => this.handleClick(event, post)}>Pin to Frontpage</Button>;
+      cheerAction = '';
     }
 
     return(
@@ -47,6 +49,7 @@ class Post extends PureComponent {
           <Card.Title className="text-left">{post.title}</Card.Title>
           <Card.Img src={post.image || post.url} />
         </Card.Body>
+        {cheerAction}
       </Card>
       <hr></hr>
     </div>

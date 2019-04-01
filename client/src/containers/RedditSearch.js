@@ -7,11 +7,11 @@ import SearchForm from '../components/SearchForm';
 class RedditSearch extends PureComponent {
   render() {
     return(
-      <React.Fragment>
+      <>
         <NavBar />
         <SearchForm />
         <Posts loading={this.props.status.loading} posts={this.props.posts} />
-      </React.Fragment>
+      </>
     )
   };
 };

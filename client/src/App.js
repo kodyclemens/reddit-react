@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Home from './containers/Home';
 import NotFound from './NotFound';
 import RedditSearch from './containers/RedditSearch';
+import About from './components/About';
 
 class App extends PureComponent {
   render () {
@@ -10,6 +11,7 @@ class App extends PureComponent {
       <Switch>
         <Route exact path='/' component={Home} />
         <Route exact path='/search' component={RedditSearch} />
+        <Route exact path='/about' component={About} />
         <Route component={NotFound} />
       </Switch>
     </Router>
