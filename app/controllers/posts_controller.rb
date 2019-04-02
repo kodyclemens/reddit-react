@@ -16,9 +16,22 @@ class PostsController < APIController
     end
   end
 
+  def update
+    puts "Cheer value: #{post_params[:cheer_value]}"
+    @post = Post.find(params[:id])
+    @post.cheers += post_params[:cheer_value]
+    @post.save
+    puts "New cheer value: #{@post.cheers}"
+  end
+
+  def show
+    @post = Post.find(params[:id])
+    render json: @post, status: 200
+  end
+
   private
 
   def post_params
-    params.require(:post).permit(:title, :author, :post_id, :image, :permalink)
+    params.require(:post).permit(:title, :author, :post_id, :image, :permalink, :id, :cheer_value)
   end
 end

@@ -13,9 +13,26 @@ code {
     monospace;
 }
 
+.cheer {
+  margin-right: 10px;
+  margin-left: 10px;
+  margin-bottom: 25px;
+  width: 20%;
+}
+
 .reddit-btn {
- background-color: #FF4500;
+ background-color: #343a40;
  border-color: #fff;
+}
+
+.reddit-btn:hover {
+  background-color: #FF4500;
+  border-color: #fff;
+}
+
+.reddit-btn:active {
+  background-color: rgb(196, 55, 4);
+  border-color: #000;
 }
 
 .div-center{

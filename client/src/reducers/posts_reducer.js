@@ -17,6 +17,20 @@ export default function postsReducer(state = [], action) {
       }
       return {...state, persisted: action.posts}
 
+    case 'CHEER_POST':
+      let persistedPosts = state.persisted;
+      const index = state.persisted.map(function(x) {return x.id;}).indexOf(action.post.id)
+
+      let post = action.post
+      if (action.post.type === 'cheer-up') {
+        post.cheers += 1;
+      } else {
+        post.cheers += -1;
+      }
+      persistedPosts[index] = post;
+
+      return {...state, persisted: persistedPosts}
+
     default:
       return state;
   };

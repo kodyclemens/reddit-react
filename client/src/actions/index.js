@@ -30,6 +30,17 @@ export const setPersisted = () => {
   };
 };
 
+export const cheerPost = (post, type) => {
+  const cheerType = type;
+  persistCheer(post, type);
+  return dispatch => {
+    dispatch({type: 'CHEER_POST', post: {
+      ...post,
+      type: cheerType
+    }})
+  }
+}
+
 //--- Below are not to be exported ---//
 
 const persistToDatabase = (post) => {
@@ -46,6 +57,26 @@ const persistToDatabase = (post) => {
         post_id: post.id,
         image: post.url,
         permalink: post.permalink
+      }
+    })
+  });
+};
+
+const persistCheer = (post, type) => {
+  let value = 0;
+
+  type === 'cheer-up' ? value = 1 : value = -1;
+
+  fetch('/api/posts/' + post.id, {
+    method: 'put',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      post: {
+        id: post.id,
+        cheer_value: value
       }
     })
   });
