@@ -1,8 +1,8 @@
 import React, { PureComponent } from 'react';
 import { Card, Button, Badge } from 'react-bootstrap';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { connect } from 'react-redux';
 import { persistPost, cheerPost } from '../actions/index';
+import CheerAction from './CheerAction';
 
 class Post extends PureComponent {
 
@@ -44,43 +44,36 @@ class Post extends PureComponent {
   }
 
   render() {
+    /* ---Variable Declartions START--- */
     const post = this.props.post;
     const persistedPostIDs = this.props.persistedPosts;
     const userLink = "https://old.reddit.com/user/" + post.author;
     const subreddit = post.permalink.split('/')[2]
+
     // post.permalink is formatted like: /r/subreddit/post_title
     post.link = "https://old.reddit.com" + post.permalink;
-    let pinAction = ''
-    let cheerAction = <span><Button className={"cheer reddit-btn p" + post.id} onClick={(event) => this.handleCheerClick(event, post)} name="cheer-up">
-                <FontAwesomeIcon
-                  icon={['fa', 'chevron-circle-up']} 
-                  style={{ color: '#99fc80' }}
-                  transform="grow-7"/>
-                </Button>
-                <Button className={"cheer reddit-btn p" + post.id} onClick={(event) => this.handleCheerClick(event, post)} name="cheer-down">
-                  <FontAwesomeIcon
-                    icon={['fa', 'chevron-circle-down']} 
-                    style={{ color: '#fc8b80' }}
-                    transform="grow-7"/>
-                </Button></span>;
-    let likeability = ''
-    let badge = ''
+    let pinAction = '';
+    let cheerAction = <CheerAction post={post} handleCheerClick={this.handleCheerClick} />
+    let likeability = '';
+    let badge = '';
+
+    /* ---Variable Declartions END--- */
 
 
     // If the post ID from the search results matches an already persisted post's ID
     // we do not want to show the pin button (logic for search results feed)
-
     if (persistedPostIDs.includes(post.id)) {
       post.persisted = true;
     }
 
     // Changing layout based on if the post is persisted or not
-
     if (post.persisted !== true ) {
       pinAction = <Button variant="outline-success" onClick={(event) => this.handlePinClick(event, post)}>Pin to Frontpage</Button>;
       cheerAction = '';
     }
-    else {
+    // Prevent posts in search results that are already pinned from showing the badge
+    // These search result posts will not have cheers or total_votes, so the badge will not display a correct percentage
+    else if (post.total_votes) {
       likeability = ((post.cheers / post.total_votes) * 100).toFixed(0)
       badge = <Badge className="likeability-badge" variant={this.decideVariant(likeability)}>{likeability + "% of users cheered for this post."}</Badge>
     }

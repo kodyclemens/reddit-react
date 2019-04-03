@@ -1,7 +1,7 @@
 import React from 'react';
 import { ButtonToolbar, Button} from 'react-bootstrap';
 
-export const Filter = (props) => {
+const Filter = (props) => {
   return(
     <div>
     <ButtonToolbar>

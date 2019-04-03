@@ -3,6 +3,7 @@ import NavBar from '../components/NavBar';
 import { connect } from 'react-redux';
 import { setPersisted } from '../actions/index';
 import Posts from './Posts';
+import Filter from '../components/Filter';
 
 class Home extends PureComponent {
 
@@ -10,10 +11,18 @@ class Home extends PureComponent {
     this.props.dispatch(setPersisted())
   }
 
+  handleFilter = (
+    event = {
+      target: {
+        name: 'recently-voted'
+      }
+    }) => {return event.target.name;}
+
   render() {
     return(
       <>
         <NavBar />
+        <Filter handleFilter={this.handleFilter} />
         <Posts posts={this.props.posts} />
       </>
     )
