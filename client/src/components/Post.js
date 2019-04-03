@@ -56,7 +56,6 @@ class Post extends PureComponent {
     let cheerAction = <CheerAction post={post} handleCheerClick={this.handleCheerClick} />
     let likeability = '';
     let badge = '';
-
     /* ---Variable Declartions END--- */
 
 

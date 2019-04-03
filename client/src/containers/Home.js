@@ -11,12 +11,16 @@ class Home extends PureComponent {
     this.props.dispatch(setPersisted())
   }
 
-  handleFilter = (
-    event = {
-      target: {
-        name: 'recently-voted'
-      }
-    }) => {return event.target.name;}
+  // handleFilter = (
+  //   event = {
+  //     target: {
+  //       name: 'recently-voted'
+  //     }
+  //   }) => {return event.target.name;}
+
+  // TODO: Filter - Pass the event target name to the setPersisted action...
+  // OPTION 1. Adjust API URL based on input and setup different API endpoints based on selected filter
+  // OPTION 2. Do the filtering via JS, reducing DB queries
 
   render() {
     return(
