@@ -3,6 +3,7 @@ import {LoadingSpinner} from '../components/Loading';
 import Post from '../components/Post';
 import { connect } from 'react-redux';
 import { setPersisted } from '../actions/index';
+import Filter from '../components/Filter';
 
 class Posts extends PureComponent {
 
@@ -14,6 +15,10 @@ class Posts extends PureComponent {
     // if (this.props.persistedPostIDs.length <= 0) {
       this.props.dispatch(setPersisted());
     // }
+  }
+
+  handleFilter = (event) => {
+    
   }
 
   render() {
@@ -32,6 +37,7 @@ class Posts extends PureComponent {
     else {
       return (
         <div>
+          <Filter handleFilter={this.handleFilter} />
           {renderPosts}
         </div>
       )

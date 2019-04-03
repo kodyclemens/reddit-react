@@ -54,13 +54,13 @@ class Post extends PureComponent {
     let cheerAction = <span><Button className={"cheer reddit-btn p" + post.id} onClick={(event) => this.handleCheerClick(event, post)} name="cheer-up">
                 <FontAwesomeIcon
                   icon={['fa', 'chevron-circle-up']} 
-                  style={{ color: '#fff' }}
+                  style={{ color: '#99fc80' }}
                   transform="grow-7"/>
                 </Button>
                 <Button className={"cheer reddit-btn p" + post.id} onClick={(event) => this.handleCheerClick(event, post)} name="cheer-down">
                   <FontAwesomeIcon
                     icon={['fa', 'chevron-circle-down']} 
-                    style={{ color: '#fff' }}
+                    style={{ color: '#fc8b80' }}
                     transform="grow-7"/>
                 </Button></span>;
     let likeability = ''
@@ -82,7 +82,7 @@ class Post extends PureComponent {
     }
     else {
       likeability = ((post.cheers / post.total_votes) * 100).toFixed(0)
-      badge = <Badge variant={this.decideVariant(likeability)}>{likeability + "% of users cheered for this post."}</Badge>
+      badge = <Badge className="likeability-badge" variant={this.decideVariant(likeability)}>{likeability + "% of users cheered for this post."}</Badge>
     }
 
     return(

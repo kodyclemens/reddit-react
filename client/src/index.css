@@ -26,13 +26,28 @@ code {
 }
 
 .reddit-btn:hover {
-  background-color: #FF4500;
+  background-color: #525e69;
   border-color: #fff;
 }
 
 .reddit-btn:active {
   background-color: rgb(196, 55, 4);
   border-color: #000;
+}
+
+.likeability-badge {
+  width: 70%;
+  margin: 0 auto 10px auto;
+}
+
+.filter-btn {
+  background-color: #343a40;
+  border-color: #fff;
+}
+
+.filter-btn:hover {
+  background-color: #525e69;
+  border-color: #fff;
 }
 
 .div-center{

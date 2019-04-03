@@ -1,6 +1,9 @@
 class PostsController < APIController
   def index
-    posts = Post.all
+    # Returning the default order with the most recently voted on posts
+    # With a good amount of users the front page will feel more dynamic
+
+    posts = Post.all.order(updated_at: :desc)
     render json: posts.to_json
   end
 
@@ -19,11 +22,9 @@ class PostsController < APIController
   def update
     cheer_value = post_params[:cheer_value]
     @post = Post.find(params[:id])
-    puts "+++++++++ Total votes: #{@post.total_votes}"
     @post.total_votes += 1
     @post.cheers += cheer_value
     @post.save
-    puts "+++++++++ Total votes: #{@post.total_votes}"
   end
 
   def show
