@@ -1,10 +1,30 @@
 import React, { PureComponent } from 'react';
-import { Card, Button } from 'react-bootstrap';
+import { Card, Button, Badge } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { connect } from 'react-redux';
 import { persistPost, cheerPost } from '../actions/index';
 
 class Post extends PureComponent {
+
+  removeButtons = (post) => {
+    const postID = post.id.toString();
+    let buttons = document.querySelectorAll('.p' + postID)
+    for (let button of buttons) {
+      button.remove();
+    }
+  }
+
+  decideVariant = (likeability) => {
+    if (likeability > 85) {
+      return 'success'
+    }
+    else if (likeability < 84 && likeability > 50) {
+      return 'warning'
+    }
+    else {
+      return 'danger'
+    }
+  }
 
   handlePinClick = (event, post) => {
     this.props.persistPost(post);
@@ -14,12 +34,13 @@ class Post extends PureComponent {
   }
 
   handleCheerClick = (event, post) => {
+    event.preventDefault();
     const cheerType = event.target.name;
     if (cheerType === undefined) {
       return null;
     }
     this.props.cheerPost(post, cheerType);
-    event.target.disabled = true;
+    this.removeButtons(post);
   }
 
   render() {
@@ -27,38 +48,43 @@ class Post extends PureComponent {
     const persistedPostIDs = this.props.persistedPosts;
     const userLink = "https://old.reddit.com/user/" + post.author;
     const subreddit = post.permalink.split('/')[2]
+    // post.permalink is formatted like: /r/subreddit/post_title
     post.link = "https://old.reddit.com" + post.permalink;
     let pinAction = ''
-    let cheerAction = <span><Button className="cheer reddit-btn" onClick={(event) => this.handleCheerClick(event, post)} name="cheer-up">
+    let cheerAction = <span><Button className={"cheer reddit-btn p" + post.id} onClick={(event) => this.handleCheerClick(event, post)} name="cheer-up">
                 <FontAwesomeIcon
                   icon={['fa', 'chevron-circle-up']} 
                   style={{ color: '#fff' }}
                   transform="grow-7"/>
                 </Button>
-                <Button className="cheer reddit-btn" onClick={(event) => this.handleCheerClick(event, post)} name="cheer-down">
+                <Button className={"cheer reddit-btn p" + post.id} onClick={(event) => this.handleCheerClick(event, post)} name="cheer-down">
                   <FontAwesomeIcon
                     icon={['fa', 'chevron-circle-down']} 
                     style={{ color: '#fff' }}
                     transform="grow-7"/>
                 </Button></span>;
     let cheers = ''
+    let likeability = ''
+    let badge = ''
 
 
     // If the post ID from the search results matches an already persisted post's ID
     // we do not want to show the pin button (logic for search results feed)
+
     if (persistedPostIDs.includes(post.id)) {
       post.persisted = true;
     }
 
-    // Do not show the pin button if the post has already been persisted to the DB
-    // Each persisted post has a 'persisted' property set to true
-    // This is done in the posts_reducer when SET_PERSISTED is called
+    // Changing layout based on if the post is persisted or not
+
     if (post.persisted !== true ) {
       pinAction = <Button variant="outline-success" onClick={(event) => this.handlePinClick(event, post)}>Pin to Frontpage</Button>;
       cheerAction = '';
       cheers = '';
     } else {
       cheers = post.cheers
+      likeability = ((post.cheers / post.total_votes) * 100).toFixed(0)
+      badge = <Badge variant={this.decideVariant(likeability)}>{likeability + "% of users cheered for this post."}</Badge>
     }
 
     return(
@@ -74,7 +100,7 @@ class Post extends PureComponent {
           <Card.Img src={post.image || post.url} />
         </Card.Body>
         {cheerAction}
-        Cheers: {cheers}
+        {badge}
       </Card>
       <hr></hr>
     </div>

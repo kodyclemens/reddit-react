@@ -17,11 +17,13 @@ class PostsController < APIController
   end
 
   def update
-    puts "Cheer value: #{post_params[:cheer_value]}"
+    cheer_value = post_params[:cheer_value]
     @post = Post.find(params[:id])
-    @post.cheers += post_params[:cheer_value]
+    puts "+++++++++ Total votes: #{@post.total_votes}"
+    @post.total_votes += 1
+    @post.cheers += cheer_value
     @post.save
-    puts "New cheer value: #{@post.cheers}"
+    puts "+++++++++ Total votes: #{@post.total_votes}"
   end
 
   def show
