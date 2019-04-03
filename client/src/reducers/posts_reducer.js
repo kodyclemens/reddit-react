@@ -27,6 +27,7 @@ export default function postsReducer(state = [], action) {
       } else {
         post.cheers += -1;
       }
+      post.total_votes += 1
       persistedPosts[index] = post;
 
       return {...state, persisted: persistedPosts}

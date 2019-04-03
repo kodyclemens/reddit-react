@@ -63,7 +63,6 @@ class Post extends PureComponent {
                     style={{ color: '#fff' }}
                     transform="grow-7"/>
                 </Button></span>;
-    let cheers = ''
     let likeability = ''
     let badge = ''
 
@@ -80,9 +79,8 @@ class Post extends PureComponent {
     if (post.persisted !== true ) {
       pinAction = <Button variant="outline-success" onClick={(event) => this.handlePinClick(event, post)}>Pin to Frontpage</Button>;
       cheerAction = '';
-      cheers = '';
-    } else {
-      cheers = post.cheers
+    }
+    else {
       likeability = ((post.cheers / post.total_votes) * 100).toFixed(0)
       badge = <Badge variant={this.decideVariant(likeability)}>{likeability + "% of users cheered for this post."}</Badge>
     }

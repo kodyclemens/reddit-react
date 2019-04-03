@@ -19,7 +19,7 @@ class Posts extends PureComponent {
   render() {
     let renderPosts = [];
     if (this.props.posts !== undefined) {
-      renderPosts = this.props.posts.map((post, id) => {return <Post key={id} post={post} handleClick={this.handleClick} persistedPosts={this.props.persistedPostIDs} />})
+      renderPosts = this.props.posts.map((post, id) => {return <Post key={id} post={post} persistedPosts={this.props.persistedPostIDs} />})
     }
 
     if (this.props.loading === true) {
