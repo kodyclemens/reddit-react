@@ -1,29 +1,23 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import NavBar from '../components/NavBar';
 import { connect } from 'react-redux';
 import { setPersisted } from '../actions/index';
 import Posts from './Posts';
 import Filter from '../components/Filter';
 
-class Home extends Component {
-
-  constructor() {
-    super();
-
-    this.state = {
-      filter: 'recently-voted'
-    }
-  }
+class Home extends PureComponent {
 
   componentDidMount() {
     this.props.dispatch(setPersisted())
   }
   
   handleFilter = (event) => {
-    this.setState({
-      filter: event.target.name
-    })
-    // Setting state is asynchronous!! Do not dispatch with state.filter, it will not be updated before the dispatch is executed!
+    let buttons = document.querySelectorAll('.filter-btn')
+    for (let button of buttons) {
+      button.classList = 'filter-btn btn btn-primary'
+    }
+
+    event.target.classList = 'filter-btn btn btn-primary active-filter'
     this.props.dispatch(setPersisted(event.target.name))
   }
 

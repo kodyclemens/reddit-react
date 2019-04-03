@@ -43,11 +43,28 @@ code {
 .filter-btn {
   background-color: #343a40;
   border-color: #fff;
+  box-shadow: 6px 6px 5px rgb(180, 180, 180);
+  outline: none;
+  border: none;
+  margin: 2px;
+}
+
+.filter-btn:focus {
+  background-color: #535d66 !important;
+  box-shadow: none !important;
+  outline: none !important;
+  border-color: #fff;
 }
 
 .filter-btn:hover {
   background-color: #525e69;
-  border-color: #fff;
+  border-color: #fff !important;
+}
+
+.active-filter {
+  background-color: #535d66 !important;
+  box-shadow: none !important;
+  outline: none !important;
 }
 
 .div-center{
