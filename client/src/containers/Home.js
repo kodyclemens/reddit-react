@@ -1,26 +1,31 @@
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 import NavBar from '../components/NavBar';
 import { connect } from 'react-redux';
 import { setPersisted } from '../actions/index';
 import Posts from './Posts';
 import Filter from '../components/Filter';
 
-class Home extends PureComponent {
+class Home extends Component {
+
+  constructor() {
+    super();
+
+    this.state = {
+      filter: 'recently-voted'
+    }
+  }
 
   componentDidMount() {
     this.props.dispatch(setPersisted())
   }
-
-  // handleFilter = (
-  //   event = {
-  //     target: {
-  //       name: 'recently-voted'
-  //     }
-  //   }) => {return event.target.name;}
-
-  // TODO: Filter - Pass the event target name to the setPersisted action...
-  // OPTION 1. Adjust API URL based on input and setup different API endpoints based on selected filter
-  // OPTION 2. Do the filtering via JS, reducing DB queries
+  
+  handleFilter = (event) => {
+    this.setState({
+      filter: event.target.name
+    })
+    // Setting state is asynchronous!! Do not dispatch with state.filter, it will not be updated before the dispatch is executed!
+    this.props.dispatch(setPersisted(event.target.name))
+  }
 
   render() {
     return(

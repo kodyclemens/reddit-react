@@ -21,10 +21,10 @@ export const persistPost = post => {
   };
 };
 
-export const setPersisted = () => {
+export const setPersisted = (filter = 'recently-voted') => {
   return dispatch => {
     dispatch({type: 'SET_PERSISTED', posts: []});
-    return fetch('/api/posts')
+    return fetch(`/api/posts/${filter}`)
     .then(resp => resp.json())
     .then(posts => dispatch({type: 'SET_PERSISTED', posts: posts}));
   };

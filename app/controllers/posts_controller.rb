@@ -32,6 +32,16 @@ class PostsController < APIController
     render json: @post, status: 200
   end
 
+  def votes
+    posts = Post.all.order(total_votes: :desc)
+    render json: posts.to_json
+  end
+
+  def cheers
+    posts = Post.all.order(cheers: :desc)
+    render json: posts.to_json
+  end
+
   private
 
   def post_params
