@@ -135,7 +135,7 @@ code {
 
 @media (min-width: 992px) {
   .card-img {
-    width: 60%;
+    width: 75%;
     height: auto;
     object-fit: cover;
   }
