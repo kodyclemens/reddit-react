@@ -1,4 +1,5 @@
 body {
+  background-color: rgb(238, 238, 238);
   margin: 0;
   padding: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -36,6 +37,7 @@ code {
  border-color: #fff;
  box-shadow: none !important;
  outline: none !important;
+ margin-top: 10px;
 }
 
 .reddit-btn:hover {
@@ -63,6 +65,10 @@ code {
 #filter-btns {
   background-color: #343a40;
   display: inline-block;
+  border-radius: 25px;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+  border-top: 1px solid #444c53;
 }
 
 .filter-btn:focus {
