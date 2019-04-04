@@ -207,6 +207,15 @@ body {
   height: 100%;
 }
 
+.not-found {
+  text-align: center;
+  padding-top: 1%;
+  background-color: #fff;
+  height: 100%;
+  font-family: 'Caveat', cursive;
+  font-size: 200%;
+}
+
 .about img{
   width: 20%;
   height: auto;

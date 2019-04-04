@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Home from './containers/Home';
-import NotFound from './NotFound';
+import NotFound from '../src/components/NotFound';
 import RedditSearch from './containers/RedditSearch';
 import About from './components/About';
 
