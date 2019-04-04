@@ -3,7 +3,8 @@ export const searchReddit = (query, amount) => {
     dispatch({type: 'START_SEARCH', query});
     return fetch(`https://www.reddit.com/r/all/search.json?limit=${amount}&q=${query}&sr_detail=on&t=all&sort=hot`)
     .then(resp => resp.json())
-    .then(posts => dispatch({type: 'SAVE_RESULTS', results: posts}));
+    .then(posts => dispatch({type: 'SAVE_RESULTS', results: posts}))
+    .catch(error => console.log(error));
   };
 };
 
@@ -26,7 +27,8 @@ export const setPersisted = (filter = 'recently-voted') => {
     dispatch({type: 'SET_PERSISTED', posts: []});
     return fetch(`/api/posts/${filter}`)
     .then(resp => resp.json())
-    .then(posts => dispatch({type: 'SET_PERSISTED', posts: posts}));
+    .then(posts => dispatch({type: 'SET_PERSISTED', posts: posts}))
+    .catch(error => console.log(error));
   };
 };
 
@@ -59,7 +61,8 @@ const persistToDatabase = (post) => {
         permalink: post.permalink
       }
     })
-  });
+  })
+  .catch(error => console.log(error));
 };
 
 const persistCheer = (post, type) => {
@@ -79,5 +82,6 @@ const persistCheer = (post, type) => {
         cheer_value: value
       }
     })
-  });
+  })
+  .catch(error => console.log(error));
 };

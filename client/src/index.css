@@ -23,16 +23,18 @@ code {
 .reddit-btn {
  background-color: #343a40;
  border-color: #fff;
+ box-shadow: none !important;
+ outline: none !important;
 }
 
 .reddit-btn:hover {
-  background-color: #525e69;
+  background-color: #FF4500;
   border-color: #fff;
 }
 
-.reddit-btn:active {
-  background-color: rgb(196, 55, 4);
-  border-color: #000;
+.reddit-btn:focus {
+  background-color: #FF4500 !important;
+  border-color: #fff !important;
 }
 
 .likeability-badge {
