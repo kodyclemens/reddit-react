@@ -5,11 +5,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 const Votes = (props) => {
   return(
     <span>
-        <FontAwesomeIcon
-          icon={['fa', 'globe-americas']} 
-          size='lg'
-          className ="votes" />
-        <Badge className="votes" id="votes" variant="light">{props.votes}</Badge>
+      <Badge className="votes" id="votes" variant="light">{props.votes}</Badge>
+      <FontAwesomeIcon
+        icon={['fa', 'user-secret']} 
+        size='sm'
+        className ="vote-image"
+        color="#343a40" />
     </span>
   )
 }

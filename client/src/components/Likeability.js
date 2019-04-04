@@ -2,12 +2,24 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Likeability = (props) => {
-  // debugger;
+  let color;
+  let likeability = props.likeability;
+  if (likeability === 'smile') {
+    color = '#99fc80';
+  }
+  else if (likeability === 'meh') {
+    color='#fdcb6e';
+  }
+  else {
+    color='#fc8b80';
+  }
+
   return(
     <span>
         <FontAwesomeIcon
-          icon={['far', `${props.likeability}`]} 
+          icon={['fa', `${likeability}`]} 
           size='2x'
+          color={color}
           />
     </span>
   )

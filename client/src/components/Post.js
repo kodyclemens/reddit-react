@@ -87,12 +87,13 @@ class Post extends PureComponent {
       <div className="container text-center">
       <Card className="mx-auto">
         <Card.Body>
-          <Card.Header className="text-left">
-            Posted by <a href={userLink}>{post.author}</a> in <a href={post.link} target="_blank" rel="noopener noreferrer">/r/{subreddit}</a>{votes}
+          <Card.Header className="text-left card-links">
+            Posted by <a href={userLink}>{post.author}</a> in <a href={post.link} target="_blank" rel="noopener noreferrer">/r/{subreddit}</a>
+            {/* {votes} */}
             <br></br>
             {pinAction}
           </Card.Header>
-          <Card.Title className="text-left">{post.title}</Card.Title>
+          <Card.Title className="text-left card-titles">{post.title}</Card.Title>
           <Card.Img src={post.image || post.url} />
         </Card.Body>
         {cheerAction}

@@ -31,11 +31,8 @@ class SearchForm extends Component {
   render() {
     return(
       <div className="container text-center">
-        <Form onSubmit={this.handleSubmit}>
+        <Form onSubmit={this.handleSubmit} className="search-form">
           <Form.Group>
-            <Form.Label>
-              Search Term
-            </Form.Label>
             <Col>
               <Form.Control type="text" placeholder="pugs" onChange={this.handleChange} value={this.state.query} size="lg" maxLength="512" id="search-form" />
             </Col>
