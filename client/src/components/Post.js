@@ -3,6 +3,7 @@ import { Card, Button, Badge } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import { persistPost, cheerPost } from '../actions/index';
 import CheerAction from './CheerAction';
+import Votes from './Votes';
 
 class Post extends PureComponent {
 
@@ -56,6 +57,7 @@ class Post extends PureComponent {
     let cheerAction = <CheerAction post={post} handleCheerClick={this.handleCheerClick} />
     let likeability = '';
     let badge = '';
+    let votes = '';
     /* ---Variable Declartions END--- */
 
 
@@ -75,6 +77,7 @@ class Post extends PureComponent {
     else if (post.total_votes) {
       likeability = ((post.cheers / post.total_votes) * 100).toFixed(0)
       badge = <Badge className="likeability-badge" variant={this.decideVariant(likeability)}>{likeability + "% of users cheered for this post."}</Badge>
+      votes = <Votes votes={post.total_votes} />
     }
 
     return(
@@ -82,7 +85,7 @@ class Post extends PureComponent {
       <Card className="mx-auto">
         <Card.Body>
           <Card.Header className="text-left">
-            Posted by <a href={userLink}>{post.author}</a> in <a href={post.link} target="_blank" rel="noopener noreferrer">/r/{subreddit}</a>
+            Posted by <a href={userLink}>{post.author}</a> in <a href={post.link} target="_blank" rel="noopener noreferrer">/r/{subreddit}</a>{votes}
             <br></br>
             {pinAction}
           </Card.Header>
