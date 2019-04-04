@@ -49,10 +49,13 @@ code {
 .filter-btn {
   background-color: #343a40;
   border-color: #fff;
-  box-shadow: 6px 6px 5px rgb(180, 180, 180);
   outline: none;
   border: none;
-  margin: 2px;
+}
+
+#filter-btns {
+  background-color: #343a40;
+  display: inline-block;
 }
 
 .filter-btn:focus {
