@@ -1,8 +1,8 @@
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faBookmark } from '@fortawesome/free-regular-svg-icons';
+import { faBookmark, faFrownOpen, faMeh, faSmile } from '@fortawesome/free-regular-svg-icons';
 import { faRedditSquare } from '@fortawesome/free-brands-svg-icons';
 import { faRedditAlien } from '@fortawesome/free-brands-svg-icons';
-import {faChevronCircleUp, faChevronCircleDown, faVoteYea} from '@fortawesome/free-solid-svg-icons';
+import {faChevronCircleUp, faChevronCircleDown, faGlobeAmericas} from '@fortawesome/free-solid-svg-icons';
 
 library.add(
   faBookmark,
@@ -10,5 +10,8 @@ library.add(
   faRedditAlien,
   faChevronCircleUp,
   faChevronCircleDown,
-  faVoteYea
+  faGlobeAmericas,
+  faFrownOpen,
+  faMeh,
+  faSmile
 );

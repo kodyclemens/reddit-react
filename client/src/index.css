@@ -13,6 +13,13 @@ code {
     monospace;
 }
 
+#votes {
+  display:inline-block;
+  margin-right:-42px;
+  margin-top: 2px;
+  background-color: rgba(255, 255, 255, 0);
+}
+
 .votes {
   float: right;
 }
@@ -82,6 +89,42 @@ code {
   margin:0 auto;
   border: 1px black;
   border-style: solid;
+}
+
+.card-img{
+  box-shadow: 2px 2px 10px #aaa;
+}
+
+.slider {
+  -webkit-appearance: none; /* Override default CSS styles */
+  width: 25%;
+  height: 15px;
+  border-radius: 5px;
+  background-color: #343a40;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Override default look */
+  appearance: none;
+  width: 25px; /* Set a specific slider handle width */
+  height: 25px; /* Slider handle height */
+  background: #FF4500; /* Green background */
+  cursor: pointer; /* Cursor on hover */
+  height: 25px;
+  border-radius: 50%; 
+}
+
+.slider::-moz-range-thumb {
+  -moz-appearance: none; /* Override default look */
+  width: 25px; /* Set a specific slider handle width */
+  height: 25px; /* Slider handle height */
+  background: #FF4500; /* Green background */
+  cursor: pointer; /* Cursor on hover */
+  height: 25px;
+  border-radius: 50%;
+  border: none;
 }
 
 @media (min-width: 992px) {

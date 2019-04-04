@@ -6,9 +6,10 @@ const Votes = (props) => {
   return(
     <span>
         <FontAwesomeIcon
-          icon={['fa', 'vote-yea']} 
+          icon={['fa', 'globe-americas']} 
+          size='lg'
           className ="votes" />
-        <Badge className="votes" variant="light">{props.votes}</Badge>
+        <Badge className="votes" id="votes" variant="light">{props.votes}</Badge>
     </span>
   )
 }

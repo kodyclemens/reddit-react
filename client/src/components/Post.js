@@ -1,31 +1,12 @@
 import React, { PureComponent } from 'react';
-import { Card, Button, Badge } from 'react-bootstrap';
+import { Card, Button } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import { persistPost, cheerPost } from '../actions/index';
 import CheerAction from './CheerAction';
 import Votes from './Votes';
+import Likeability from './Likeability';
 
 class Post extends PureComponent {
-
-  removeButtons = (post) => {
-    const postID = post.id.toString();
-    let buttons = document.querySelectorAll('.p' + postID)
-    for (let button of buttons) {
-      button.remove();
-    }
-  }
-
-  decideVariant = (likeability) => {
-    if (likeability > 85) {
-      return 'success'
-    }
-    else if (likeability < 84 && likeability > 50) {
-      return 'warning'
-    }
-    else {
-      return 'danger'
-    }
-  }
 
   handlePinClick = (event, post) => {
     this.props.persistPost(post);
@@ -44,6 +25,26 @@ class Post extends PureComponent {
     this.removeButtons(post);
   }
 
+  removeButtons = (post) => {
+    const postID = post.id.toString();
+    let buttons = document.querySelectorAll('.p' + postID)
+    for (let button of buttons) {
+      button.remove();
+    }
+  }
+
+  decideVariant = (likeability) => {
+    if (likeability > 85) {
+      return 'smile'
+    }
+    else if (likeability < 84 && likeability > 50) {
+      return 'meh'
+    }
+    else {
+      return 'frown-open'
+    }
+  }
+
   render() {
     /* ---Variable Declartions START--- */
     const post = this.props.post;
@@ -53,11 +54,12 @@ class Post extends PureComponent {
 
     // post.permalink is formatted like: /r/subreddit/post_title
     post.link = "https://old.reddit.com" + post.permalink;
-    let pinAction = '';
-    let cheerAction = <CheerAction post={post} handleCheerClick={this.handleCheerClick} />
-    let likeability = '';
-    let badge = '';
-    let votes = '';
+    let pinAction;
+    let cheerAction;
+    let likeability;
+    let ratingSmiley;
+    let percentageText;
+    let votes;
     /* ---Variable Declartions END--- */
 
 
@@ -68,16 +70,17 @@ class Post extends PureComponent {
     }
 
     // Changing layout based on if the post is persisted or not
-    if (post.persisted !== true ) {
+    if (post.persisted !== true) {
       pinAction = <Button variant="outline-success" onClick={(event) => this.handlePinClick(event, post)}>Pin to Frontpage</Button>;
-      cheerAction = '';
     }
-    // Prevent posts in search results that are already pinned from showing the badge
-    // These search result posts will not have cheers or total_votes, so the badge will not display a correct percentage
+    // Prevent posts in search results that are already pinned from showing the userRating
+    // These search result posts will not have cheers or total_votes, so the rating will not display a correct percentage
     else if (post.total_votes) {
       likeability = ((post.cheers / post.total_votes) * 100).toFixed(0)
-      badge = <Badge className="likeability-badge" variant={this.decideVariant(likeability)}>{likeability + "% of users cheered for this post."}</Badge>
+      ratingSmiley = <Likeability likeability={this.decideVariant(likeability)} />
+      percentageText = <figcaption className="figure-caption">{likeability + "% of users cheered for this post."}</figcaption>
       votes = <Votes votes={post.total_votes} />
+      cheerAction = <CheerAction post={post} handleCheerClick={this.handleCheerClick} />;
     }
 
     return(
@@ -93,7 +96,7 @@ class Post extends PureComponent {
           <Card.Img src={post.image || post.url} />
         </Card.Body>
         {cheerAction}
-        {badge}
+        {ratingSmiley}{percentageText}
       </Card>
       <hr></hr>
     </div>

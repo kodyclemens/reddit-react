@@ -40,9 +40,9 @@ class SearchForm extends Component {
               <Form.Control type="text" placeholder="pugs" onChange={this.handleChange} value={this.state.query} size="lg" maxLength="512" id="search-form" />
             </Col>
           </Form.Group>
-          <label>Show me a maximum of <strong>{this.state.amount}</strong> results</label>
+          <label>Return a maximum of <strong>{this.state.amount}</strong> results</label>
           <br></br>
-          <input type="range" min="10" max="100" value={this.state.amount} className="slider" id="myRange" onChange={this.handleSlider} ></input>
+          <input type="range" min="10" max="100" value={this.state.amount} className="slider" onChange={this.handleSlider} ></input>
           <Form.Group as={Row}>
             <Col>
               <Button type="submit" className="btn mx-auto reddit-btn">Search Reddit <FontAwesomeIcon 
