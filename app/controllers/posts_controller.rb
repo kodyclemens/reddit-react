@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 class PostsController < APIController
   def index
     # Returning the default order with the most recently voted on posts
     # With a good amount of users the front page will feel more dynamic
 
-    posts = Post.all.order(updated_at: :desc)
+    posts = Post.all.order(created_at: :desc)
     render json: posts.to_json
   end
 

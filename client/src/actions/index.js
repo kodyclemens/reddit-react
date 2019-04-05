@@ -22,7 +22,7 @@ export const persistPost = post => {
   };
 };
 
-export const setPersisted = (filter = 'recently-voted') => {
+export const setPersisted = (filter = 'recently-pinned') => {
   return dispatch => {
     dispatch({type: 'SET_PERSISTED', posts: []});
     return fetch(`/api/posts/${filter}`)

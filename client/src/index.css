@@ -93,14 +93,14 @@ body {
   margin: 0 auto 10px auto;
 }
 
-.filter-btn {
+.sort-btn {
   background-color: #343a40;
   border-color: #fff;
   outline: none;
   border: none;
 }
 
-#filter-btns {
+#sort-btns {
   background-color: #343a40;
   display: inline-block;
   border-radius: 25px;
@@ -109,19 +109,19 @@ body {
   border-top: 1px solid #444c53;
 }
 
-.filter-btn:focus {
+.sort-btn:focus {
   background-color: #535d66 !important;
   box-shadow: none !important;
   outline: none !important;
   border-color: #fff;
 }
 
-.filter-btn:hover {
+.sort-btn:hover {
   background-color: #525e69;
   border-color: #fff !important;
 }
 
-.active-filter {
+.active-sort {
   background-color: #535d66 !important;
   box-shadow: none !important;
   outline: none !important;

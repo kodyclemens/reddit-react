@@ -3,7 +3,7 @@ import NavBar from '../components/NavBar';
 import { connect } from 'react-redux';
 import { setPersisted } from '../actions/index';
 import Posts from './Posts';
-import Filter from '../components/Filter';
+import Sort from '../components/Sort';
 
 class Home extends PureComponent {
 
@@ -11,13 +11,13 @@ class Home extends PureComponent {
     this.props.dispatch(setPersisted())
   }
   
-  handleFilter = (event) => {
-    let buttons = document.querySelectorAll('.filter-btn')
+  handleSort = (event) => {
+    let buttons = document.querySelectorAll('.sort-btn')
     for (let button of buttons) {
-      button.classList = 'filter-btn btn btn-primary'
+      button.classList = 'sort-btn btn btn-primary'
     }
 
-    event.target.classList = 'filter-btn btn btn-primary active-filter'
+    event.target.classList = 'sort-btn btn btn-primary active-sort'
     this.props.dispatch(setPersisted(event.target.name))
   }
 
@@ -25,7 +25,7 @@ class Home extends PureComponent {
     return(
       <>
         <NavBar />
-        <Filter handleFilter={this.handleFilter} />
+        <Sort handleSort={this.handleSort} />
         <Posts posts={this.props.posts} />
       </>
     )
