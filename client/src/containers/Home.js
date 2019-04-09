@@ -32,8 +32,8 @@ class Home extends PureComponent {
   };
 };
 
-const mapPropsToState = state => {
+const mapStateToProps = state => {
   return {posts: state.posts.persisted}
 };
 
-export default connect(mapPropsToState)(Home);
+export default connect(mapStateToProps)(Home);

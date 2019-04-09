@@ -9,7 +9,7 @@ export default function postsReducer(state = [], action) {
       return {...state, posts: posts, loading: false};
 
     case 'PERSIST_POST':
-      return {...state, persisted: [action.post]}
+      return {...state, persisted: [...state.persisted, action.post]}
 
     case 'SET_PERSISTED':
       for(let x in action.posts) {

@@ -41,14 +41,9 @@ class Posts extends PureComponent {
 
 const mapStateToProps = state => {
   if (state.posts.persisted) {
-    const persistedPosts = state.posts.persisted;
-    let persistedPostIDs = [];
-    for(let i in persistedPosts) {
-      persistedPostIDs.push(persistedPosts[i].post_id)
-    };
-    return {persistedPostIDs: persistedPostIDs}
+    return {persistedPostIDs: state.posts.persisted.map(post => post.id)}
   };
-  return {persistedPostIDs: []}
+  return {persistedPostIDs: []};
 }
 
 export default connect(mapStateToProps)(Posts);

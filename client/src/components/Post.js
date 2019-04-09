@@ -88,7 +88,7 @@ class Post extends PureComponent {
       <Card className="mx-auto">
         <Card.Body>
           <Card.Header className="text-left card-links">
-            Posted by <a href={userLink}>{post.author}</a> in <a href={post.link} target="_blank" rel="noopener noreferrer">/r/{subreddit}</a>
+            Posted by <a href={userLink} target="_blank" rel="noopener noreferrer">{post.author}</a> in <a href={post.link} target="_blank" rel="noopener noreferrer">/r/{subreddit}</a>
             {/* {votes} */}
             <br></br>
             {pinAction}

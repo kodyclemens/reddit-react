@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
 import NavBar from './NavBar';
 import error from '../images/404.png';
 
@@ -10,7 +9,7 @@ class NotFound extends Component {
         <NavBar />
         <div className="container not-found">
           <p>This is not the page you are looking for!</p>
-          <img src={error}></img>
+          <img src={error} alt="Funny Error"></img>
           <br></br>
       </div>
       </>
