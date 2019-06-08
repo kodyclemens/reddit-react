@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 const Likeability = (props) => {
   let color;
   let likeability = props.likeability;
+  
   if (likeability === 'smile') {
     color = '#99fc80';
   }
