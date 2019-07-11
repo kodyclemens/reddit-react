@@ -1,5 +1,5 @@
 import React from 'react';
-import {TailSpin} from '@bit/mhnpd.react-loader-spinner.tail-spin';
+import Loader from 'react-loader-spinner'
 
 function getRandomColor() {
   const letters = '0123456789ABCDEF';
@@ -12,7 +12,8 @@ function getRandomColor() {
 
 export const LoadingSpinner = () => {
   return(
-    <TailSpin 
+    <Loader
+      type="Bars"
       color={getRandomColor()} 
       height={75} 
       width={75} 
